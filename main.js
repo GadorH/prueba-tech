@@ -1,7 +1,7 @@
 import ScrollMagic from "scrollmagic";
-import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
 import "./styles/main.css";
 
 const SPEED = 250;
@@ -19,7 +19,7 @@ if (window.innerWidth <= 1080) {
 video.innerHTML = `<source src="${videoSource}" type="video/mp4">`;
 video.load();
 
-const createScene = ({ triggerElement, addIndicators = false, duration, onProgress, controller }) => {
+const createScene = ({ triggerElement, duration, onProgress, controller }) => {
     const scene = new ScrollMagic.Scene({
         triggerElement: triggerElement,
         triggerHook: 0,
@@ -28,10 +28,6 @@ const createScene = ({ triggerElement, addIndicators = false, duration, onProgre
     })
         .on("progress", onProgress)
         .addTo(controller);
-
-    if (addIndicators) {
-        scene.addIndicators();
-    }
 
     return scene;
 };
@@ -77,7 +73,6 @@ video.addEventListener("loadedmetadata", () => {
     const scene1 = createScene({
         triggerElement: "#trigger1",
         duration: "100%",
-        addIndicators: true,
         onProgress: (e) => {
             let opacity;
             let topPosition;
@@ -147,7 +142,6 @@ video.addEventListener("loadedmetadata", () => {
     const scene3 = createScene({
         triggerElement: "#trigger3",
         duration: (scrollHeight - trigger2EndPosition) / 2,
-        addIndicators: true,
         onProgress: (e) => {
             let opacity;
             let topPosition;
