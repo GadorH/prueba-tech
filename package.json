@@ -1,0 +1,19 @@
+{
+  "name": "test-zara",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.2",
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "gsap": "^3.12.4",
+    "scrollmagic": "^2.0.8"
+  }
+}
